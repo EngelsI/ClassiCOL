@@ -1735,6 +1735,7 @@ def make_output_file(path,df_plot, df_output, file_name, bc, l,sample_path):
             score += df_distance[a].values
         score = score/len(animals_in_taxon_out)
         ranking_taxon.append([taxon,score])
+    ranking_taxon = sorted(ranking_taxon, key=lambda x:x[1])[::-1]
     with open(path+'/Output_Classicol/'+sample_path+'/ZooMS_results_'+file_name+'.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',', lineterminator='\n')
         writer.writerow(['ZooMS analysis output (~: isoBLAST match, *: Unique PSM)'])
