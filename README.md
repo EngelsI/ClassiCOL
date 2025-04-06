@@ -1,8 +1,9 @@
-# ClassiCOL version 1.0.1
+# ClassiCOL version 1.0.2
 
 <img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/ClassiCOL-logo5_whitebackground.png" width="1000" height="350" />
 
 ## Updates since ClassiCOL version 1.0.0
+UPDATE version 1_0_2, bugs in output file fixed
 UPDATE 27March2025: Distance matrix saves faster
 1. Addition of general input file (for non-MASCOT/MaxQuant users)
 2. User defined usage of CPUs now possible
