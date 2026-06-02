@@ -67,7 +67,9 @@ $ python ClassiCOL.py -d path_to_the_script -l Demo -s MASCOT
    - MASCOT.csv:
      Download your results directly from MASCOT in csv format
    - MaxQuant.txt
-     Use the output datafile containing peptides and PTM data from MaxQuant in txt format
+     Use the output datafile containing peptides and PTM data from MaxQuant in txt format (e.g. evidence.txt)
+   - PEAKS.csv:
+     Use the peptide.csv output file
    - Manual.csv:
      A manual csv can be made and used as input. This file should include a sequence and (if present) the modification/s with localisation. N-term location =0, first amino acid has location 1, and C-term uses -1 as location number e.g.:
 ```csv
