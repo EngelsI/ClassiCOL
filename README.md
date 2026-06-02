@@ -6,6 +6,7 @@
 
 What is new in ClassiCOL2:
 - Up to 10X faster analysis time
+- Removal of the Keratin restriction
 - Indicative mixture deconvolution for multiple species samples and non-database taxa.
 - New plots: Taxonomic slope plot, multiple alignment plot, order uniqueness overview plot, measured data-based tree plot 
 
