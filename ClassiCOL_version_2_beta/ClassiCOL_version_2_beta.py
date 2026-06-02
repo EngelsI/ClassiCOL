@@ -1480,7 +1480,7 @@ def make_plots_coverage_per_animal(df, sequence_db, all_animals, data_array,labe
                                         })
     file_name_plot = 'Heatmap_'+file_name+'.html'
     fig.update_layout(title = 'Heatmap: '+file_name_plot)
-    fig.write_html(path /'Output_Classicol'/sample_path/file_name_plot)
+    fig.write_html(path /'Output_ClassiCOL'/sample_path/file_name_plot)
     # plotly.offline.plot(fig)
     
     return taxon_distance, df_plot.T, heat_data,names,taxon_col
@@ -1983,9 +1983,9 @@ def make_sunburst(dfs,all_animals,df_output,file_name,ip_animals,df_plot,path,sa
     fig.update_layout(coloraxis_colorbar_title='Score')
     try:
         file_name_plot = 'sunburst_'+file_name+'.html'
-        fig.write_html(path/'Output_Classicol'/sample_path/file_name_plot)
+        fig.write_html(path/'Output_ClassiCOL'/sample_path/file_name_plot)
     except:
-        fig.write_html(path/'Output_Classicol'/sample_path/'sunburst.html')
+        fig.write_html(path/'Output_ClassiCOL'/sample_path/'sunburst.html')
     # plotly.offline.plot(fig)
     # time.sleep(2)
     f_out = make_output_file(path, df_plot, df_output,file_name, braycurtis_dist, labels,sample_path,all_taxonomy)
@@ -2029,7 +2029,7 @@ def make_output_file(path,df_plot, df_output, file_name, bc, l,sample_path,all_t
         ranking_taxon.append([taxon,score])
     ranking_taxon = sorted(ranking_taxon, key=lambda x:x[1])[::-1]
     name_file = 'ZooMSMS_results_'+file_name+'.csv'
-    with open(path/'Output_Classicol'/sample_path/name_file, 'w', newline='') as csvfile:
+    with open(path/'Output_ClassiCOL'/sample_path/name_file, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',', lineterminator='\n')
         writer.writerow(['ZooMSMS analysis output (~: isoBLAST match, *: Unique PSM)'])
         writer.writerow(['Isoblast analysis revealed '+ str(len(set(df_output['found_match'].values)))+' unique peptide matches with the database'])
@@ -2057,7 +2057,7 @@ def make_output_file(path,df_plot, df_output, file_name, bc, l,sample_path,all_t
                         writer.writerow([pep,ptm,t])
     print('Done saving')
     file_loc = 'ZooMSMS_results_'+file_name+'.csv'
-    return path/'Output_Classicol'/sample_path/file_loc
+    return path/'Output_ClassiCOL'/sample_path/file_loc
 
 def make_connection_graph(df_output, file_name,final_output,found_animals,taxonomy):
     taxon = []
@@ -2117,7 +2117,7 @@ def make_connection_graph(df_output, file_name,final_output,found_animals,taxono
 def rescore(path, file_loc,f_name,sample_path,taxonomy):
     file_name = file_loc.stem+'.csv'
     file_name_print = file_name.replace('.csv','')
-    df = pd.read_csv(path/'Output_Classicol'/sample_path/file_name,names=['a','b','c'])
+    df = pd.read_csv(path/'Output_ClassiCOL'/sample_path/file_name,names=['a','b','c'])
     df = df.iloc[2:]
     
     add = []
@@ -2230,7 +2230,7 @@ def rescore(path, file_loc,f_name,sample_path,taxonomy):
             fig.update_layout(height=600, width=1500, barmode = 'stack', xaxis={'categoryorder':'total descending'})
             fig.update_xaxes(showticklabels=False)
             name_file = 'Barplot_uniquePeptides_'+file_name_print+'.html'
-            fig.write_html(path/'Output_Classicol'/sample_path/name_file)
+            fig.write_html(path/'Output_ClassiCOL'/sample_path/name_file)
             # plotly.offline.plot(fig)
             time.sleep(5)
             sp = list(set(list(temp['species'].values)))
@@ -2259,9 +2259,9 @@ def rescore(path, file_loc,f_name,sample_path,taxonomy):
             fig.update_layout(title = 'Original score VS Rescore of '+file_name_print,height=600, width=900)
             try:
                 name_file = 'Rescore_'+file_name_print+'.html'
-                fig.write_html(path/'Output_Classicol'/sample_path/name_file)
+                fig.write_html(path/'Output_ClassiCOL'/sample_path/name_file)
             except:
-                fig.write_html(path/'Output_Classicol'/sample_path/'Rescore.html')
+                fig.write_html(path/'Output_ClassiCOL'/sample_path/'Rescore.html')
             # plotly.offline.plot(fig)
             time.sleep(3)
         else:
@@ -2272,9 +2272,9 @@ def rescore(path, file_loc,f_name,sample_path,taxonomy):
             fig = px.bar(df, x=['all peptides'], y=[1],color=species, title=file_name_print)
             try:
                 name_file = 'Barplot_uniquePeptides_'+file_name_print+'.html'
-                fig.write_html(path/'Output_Classicol'/sample_path/name_file)
+                fig.write_html(path/'Output_ClassiCOL'/sample_path/name_file)
             except:
-                fig.write_html(path/'Output_Classicol'/sample_path/'Barplot_uniquePeptides.html')
+                fig.write_html(path/'Output_ClassiCOL'/sample_path/'Barplot_uniquePeptides.html')
             # plotly.offline.plot(fig)
             time.sleep(3)
     to_summ = make_output_file_after_rescoring(path,df,df_scores, f_name,sample_path,taxonomy)
@@ -2318,7 +2318,7 @@ def go_to_species(c,species_list,taxonomy):
 def make_output_file_after_rescoring(path,df_og,df_rescore, file_name,sample_path,taxons):
     print('generating final output file')
     name_file = 'Taxonomic_results_after_rescoring_'+file_name+'.csv'
-    with open(path/'Output_Classicol'/sample_path/name_file, 'w', newline='') as csvfile:
+    with open(path/'Output_ClassiCOL'/sample_path/name_file, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',', lineterminator='\n')
         writer.writerow(['Species','Species_Rank','Original_score','Rescored','Unique_peptide_amongst_candidates',
                          'isoBLAST_generated_Peptide','Protein','Peptide','PTMs','Representative_PSM_title'])
@@ -2566,9 +2566,9 @@ def make_sunburst_with_missing2(dfs,ip_animals,found_animals,path,sample_path,ta
     fig.update_layout(coloraxis_colorbar_title='Score')
     try:
         name_file = 'sunburst_including_missing_species_'+file_name+'.html'
-        fig.write_html(path/'Output_Classicol'/sample_path/name_file)
+        fig.write_html(path/'Output_ClassiCOL'/sample_path/name_file)
     except:
-        fig.write_html(path/'Output_Classicol'/sample_path/'sunburst_including_missing_species.html')
+        fig.write_html(path/'Output_ClassiCOL'/sample_path/'sunburst_including_missing_species.html')
     # plotly.offline.plot(fig)
     # time.sleep(2)
     return temporary_dataframe
@@ -3051,13 +3051,13 @@ def ClassiCOL_analysis(
             summary_output_file=[lim_tax,total_peptide_begin]+to_summary
         else:
             name_file = 'ZooMSMS_results_'+file_name+'.csv'
-            with open(path/'Output_Classicol'/sample_path/name_file, 'w', newline='') as csvfile:
+            with open(path/'Output_ClassiCOL'/sample_path/name_file, 'w', newline='') as csvfile:
                 writer = csv.writer(csvfile, delimiter=',', lineterminator='\n')
                 writer.writerow(['ZooMSMS analysis found nothing'])
                 summary_output_file=[lim_tax,total_peptide_begin]+['nothing_found']+['']*17
     else:
         name_file = 'ZooMSMS_results_'+file_name+'.csv'
-        with open(path/'Output_Classicol'/sample_path/name_file, 'w', newline='') as csvfile:
+        with open(path/'Output_ClassiCOL'/sample_path/name_file, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile, delimiter=',', lineterminator='\n')
             writer.writerow(['ZooMSMS analysis found nothing'])
             summary_output_file=[lim_tax,total_peptide_begin]+['nothing_found']+['']*17
@@ -3661,9 +3661,9 @@ def find_search_space(seq_to_anim,animals_to_include,seqs,anim,mammals,df,taxa_n
     
     try:
         name_file = taxa_name+'_consensus_search_space_visualization_'+protein_name+'.html'
-        fig.write_html(path/'Output_Classicol'/sample_path/ 'mixture_plots' / 'aligned' /name_file)
+        fig.write_html(path/'Output_ClassiCOL'/sample_path/ 'mixture_plots' / 'aligned' /name_file)
     except:
-        fig.write_html(path/'Output_Classicol'/sample_path/'mixture_plots' / 'aligned' / 'multiple_alignment.html')
+        fig.write_html(path/'Output_ClassiCOL'/sample_path/'mixture_plots' / 'aligned' / 'multiple_alignment.html')
     
     return consensus_df,mapped
 
@@ -3897,9 +3897,9 @@ def delete_groups(taxonomic_groups, df,path,sample_path,file_extinct,considered_
     name_file = 'Before_start_order_uniqueness_'+file_extinct+'.html'
     
     try:
-        fig.write_html(path/'Output_Classicol'/sample_path/ 'mixture_plots' / 'taxonomic_output' /name_file)
+        fig.write_html(path/'Output_ClassiCOL'/sample_path/ 'mixture_plots' / 'taxonomic_output' /name_file)
     except:
-        fig.write_html(path/'Output_Classicol'/sample_path/'mixture_plots' / 'taxonomic_output' / 'Order_uniqueness_before_mixture_analysis.html')    
+        fig.write_html(path/'Output_ClassiCOL'/sample_path/'mixture_plots' / 'taxonomic_output' / 'Order_uniqueness_before_mixture_analysis.html')    
     
     return [el for loc,el in enumerate(names_groups) if order_uniqueness[loc]>=max(2,include_order) and order_unique_per_species[loc]>=max(1.5,include_order_per_species)]#At least 2 unique peptides to be considered. More is there is a high abundance of uniqueness (high detectability, low chance of having missed the unique ones of other species less abundant in the sample)
 
@@ -4731,9 +4731,9 @@ def plot_new_tree(dist_matrix,name_to_coverage,file_extinct,path, sample_path,ta
     
     name_file=file_extinct+'.html'
     try:
-        fig.write_html(path/'Output_Classicol'/sample_path/ 'mixture_plots' / 'taxonomic_output' /name_file)
+        fig.write_html(path/'Output_ClassiCOL'/sample_path/ 'mixture_plots' / 'taxonomic_output' /name_file)
     except:
-        fig.write_html(path/'Output_Classicol'/sample_path/'mixture_plots' / 'taxonomic_output' / 'measured_tree_output.html') 
+        fig.write_html(path/'Output_ClassiCOL'/sample_path/'mixture_plots' / 'taxonomic_output' / 'measured_tree_output.html') 
     
     return
 
@@ -5220,9 +5220,9 @@ def plot_taxonomy(file_extinct,theoretical_trace_back,species_in,sequences,other
     
     name_file='Order_uniqueness_'+file_extinct+'.html'
     try:
-        fig.write_html(path/'Output_Classicol'/sample_path/ 'mixture_plots' / 'taxonomic_output' /name_file)
+        fig.write_html(path/'Output_ClassiCOL'/sample_path/ 'mixture_plots' / 'taxonomic_output' /name_file)
     except:
-        fig.write_html(path/'Output_Classicol'/sample_path/'mixture_plots' / 'taxonomic_output' / 'Before_tree_analysis.html') 
+        fig.write_html(path/'Output_ClassiCOL'/sample_path/'mixture_plots' / 'taxonomic_output' / 'Before_tree_analysis.html') 
     print('Deleting {} because there is no uniqueness at the order level'.format(delete_order))
     delete_species = delete_order_species
     genetic_mixtures = [el for el in genetic_mixtures if el not in delete_species]+['Database_match_' + el for el in others if any(el in element for element in delete_species)==False]
@@ -5823,9 +5823,9 @@ def plot_taxonomy(file_extinct,theoretical_trace_back,species_in,sequences,other
 
     name_file='Ranked_'+file_extinct+'.html'
     try:
-        fig.write_html(path/'Output_Classicol'/sample_path/ 'mixture_plots' / 'taxonomic_output' /name_file)
+        fig.write_html(path/'Output_ClassiCOL'/sample_path/ 'mixture_plots' / 'taxonomic_output' /name_file)
     except:
-        fig.write_html(path/'Output_Classicol'/sample_path/'mixture_plots' / 'taxonomic_output' / 'Ranked_classification.html') 
+        fig.write_html(path/'Output_ClassiCOL'/sample_path/'mixture_plots' / 'taxonomic_output' / 'Ranked_classification.html') 
     
     
     seqs = {}
@@ -5848,7 +5848,7 @@ def ClassiCOL_mixture_analysis(
     #Take the taxon result file generated before 
     name_file='Taxonomic_results_after_rescoring_'+file_name+'.csv'
     
-    file_extinct = path / 'Output_Classicol' / sample_path/ name_file
+    file_extinct = path / 'Output_ClassiCOL' / sample_path/ name_file
     output_sequences = {}
     all_seqs = {}
     all_sp_in = []
@@ -6290,7 +6290,7 @@ def ClassiCOL_mixture_analysis(
     return output_sequences, missed_outcome, all_starting_peptides
 
 def return_missed(m,path,sample_path):
-    with open(path/'Output_Classicol'/sample_path/'mixture_plots' /'Species_deleted_from_mixture_analysis.txt', "a") as f:
+    with open(path/'Output_ClassiCOL'/sample_path/'mixture_plots' /'Species_deleted_from_mixture_analysis.txt', "a") as f:
         f.write("The following species were deleted from the mixture analysis of ClassiCOL2.0 due to a lack of peptides:\n")
         for sp in m:
             f.write(sp+'\n')
@@ -6332,7 +6332,7 @@ def return_measured_seqs(output_sequences,path,sample_path,peptide_list):
         print('writing fasta {}'.format(title))
         
         name_file = title+'.fasta'
-        with open(path/'Output_Classicol'/sample_path/'mixture_plots' /'fastas'/name_file,'w') as output_handle:
+        with open(path/'Output_ClassiCOL'/sample_path/'mixture_plots' /'fastas'/name_file,'w') as output_handle:
             SeqIO.write(sequence_list,output_handle,'fasta')
     return
 
@@ -6383,7 +6383,7 @@ if __name__ == "__main__":#rescore output in csv, reduced info output file, summ
     if Search_engine not in ['mascot', 'maxquant', 'manual','winnow','peaks']:
         print(f"ERROR: '{Search_engine}' is not a valid search engine.")
         
-    outpath = path / 'Output_Classicol'
+    outpath = path / 'Output_ClassiCOL'
     outpath.mkdir(parents=True, exist_ok=True)
     os.chdir(path)
     all_files_to_analyse: list[tuple[pathlib.Path, typing.Any]] = []
@@ -6443,15 +6443,15 @@ if __name__ == "__main__":#rescore output in csv, reduced info output file, summ
                 file_name = file_name.replace('.','_')
                 sample_path = file_name
                 df2, unimod_db, ids,AA_codes = load_files_peaks(path, test_file[0], AA_codes)
-        outpath = path / 'Output_Classicol' / sample_path
+        outpath = path / 'Output_ClassiCOL' / sample_path
         outpath.mkdir(parents=True, exist_ok=True)
-        outpath_mix = path / 'Output_Classicol' / sample_path / 'mixture_plots'
+        outpath_mix = path / 'Output_ClassiCOL' / sample_path / 'mixture_plots'
         outpath_mix.mkdir(parents=True, exist_ok=True)
-        outpath_mix_aligned = path / 'Output_Classicol' / sample_path / 'mixture_plots' / 'aligned'
+        outpath_mix_aligned = path / 'Output_ClassiCOL' / sample_path / 'mixture_plots' / 'aligned'
         outpath_mix_aligned.mkdir(parents=True, exist_ok=True)
-        outpath_mix_fastas = path / 'Output_Classicol' / sample_path / 'mixture_plots' / 'fastas'
+        outpath_mix_fastas = path / 'Output_ClassiCOL' / sample_path / 'mixture_plots' / 'fastas'
         outpath_mix_fastas.mkdir(parents=True, exist_ok=True)
-        outpath_mix_taxonomic_output = path / 'Output_Classicol' / sample_path / 'mixture_plots' / 'taxonomic_output'
+        outpath_mix_taxonomic_output = path / 'Output_ClassiCOL' / sample_path / 'mixture_plots' / 'taxonomic_output'
         outpath_mix_taxonomic_output.mkdir(parents=True, exist_ok=True)
         
         
@@ -6474,7 +6474,7 @@ if __name__ == "__main__":#rescore output in csv, reduced info output file, summ
         general_summary_output_file[file_name]=classicol_done
         
         files_out = []
-        for files in os.walk(path / 'Output_Classicol' / sample_path):
+        for files in os.walk(path / 'Output_ClassiCOL' / sample_path):
             for i in files[-1]:
                 files_out.append(i)
         if any('Taxonomic_results_after_rescoring_'+file_name in i for i in files_out):
@@ -6501,7 +6501,7 @@ if __name__ == "__main__":#rescore output in csv, reduced info output file, summ
     #create summary output file
     today = str(date.today())
     summ_out = 'Summary_taxonomic_classification_'+today+'.csv'
-    with open(path / 'Output_Classicol'/summ_out, 'w', newline='') as csvfile:
+    with open(path / 'Output_ClassiCOL'/summ_out, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',', lineterminator='\n')
         writer.writerow(['Experiment','Taxonomic_restriction','Total_peptide_count_in_input_file',
                          'Species(1)','Score','Rescore','Pep_count','isoBLAST_count','unique_peptide_count',
@@ -6513,9 +6513,9 @@ if __name__ == "__main__":#rescore output in csv, reduced info output file, summ
     
 # try:
 #     name_file = taxa_name+'_consensus_search_space_visualization_'+protein_name+'.html'
-#     fig.write_html(path/'Output_Classicol'/sample_path/ 'mixture_plots' / 'aligned' /name_file)
+#     fig.write_html(path/'Output_ClassiCOL'/sample_path/ 'mixture_plots' / 'aligned' /name_file)
 # except:
-#     fig.write_html(path/'Output_Classicol'/sample_path/'mixture_plots' / 'aligned' / 'multiple_alignment.html')    
+#     fig.write_html(path/'Output_ClassiCOL'/sample_path/'mixture_plots' / 'aligned' / 'multiple_alignment.html')    
     
     
     
