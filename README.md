@@ -35,7 +35,7 @@ I. Engels, A. Burnett, P. Robert, C. Pironneau, G. Abrams, R. Bouwmeester, P. Va
 2. Download the **UniProt taxonomy database**:
 - Go to https://www.uniprot.org.
 - Navigate to Taxonomy or use this link adress: https://www.uniprot.org/taxonomy?query=*.
-- Download the taxonomy by clicking the download button and choosing TSV as file format.
+- Download the taxonomy by clicking the download button and choosing TSV as file format. You should include the Common name, Synonyms, Other names, Scientific name, Lineage, and Rank columns in the download.
 - Not recommended but possible: you can restrict the taxonomy download file if you do not want to include all taxa.
 - Put the tsv file in the **MISC** folder.
 
