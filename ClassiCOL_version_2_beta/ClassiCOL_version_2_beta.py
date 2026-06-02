@@ -611,7 +611,13 @@ def animals_from_db_input(sequence_db, lim_t,demo,path):
             lim_sp.append(' '.join(x.split('_')))
         lim_t=lim_sp
     print('Loading taxonomy')
-    taxonomy_df = pd.read_csv(path/'MISC'/'taxonomy_Uniprot_2026_04_27.tsv',sep = '\t')
+    taxonomy_loc = path/'MISC'
+    taxa_file = []
+    for file in taxonomy_loc.iterdir():
+        if file.suffix == '.tsv':
+            taxa_file.append((file, None))
+    print(f'Opening taxonomy file: {taxa_file[0][0]}')
+    taxonomy_df = pd.read_csv(taxa_file[0][0],sep = '\t')
     taxonomy_df = taxonomy_df.fillna('')
     tax_to_lin = {(sc_name,lin.split(', ')[-1]):rank for sc_name,lin,rank in taxonomy_df[['Scientific name','Lineage','Rank']].values if sc_name != ''}
     print('Taxonomy loading finished')
