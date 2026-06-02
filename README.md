@@ -2,36 +2,36 @@
 
 <img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/ClassiCOL-logo5_whitebackground.png" width="1000" height="350" />
 
-## Updates since ClassiCOL version 1.0.0
+## ClassiCOL version 2.0.0 (beta)
+
+
+## Previous updates of ClassiCOL version 1.0.0
 UPDATE version 1_0_2, bugs in output file fixed
-UPDATE 27March2025: Distance matrix saves faster
-1. Addition of general input file (for non-MASCOT/MaxQuant users)
-2. User defined usage of CPUs now possible
-3. Batch search remembers isoBLASTED peptides (decrease in computing time throughout batch searches)
-4. Protein distance calculations are now faster, precalcutated distance file for pecora can be found in the MISC folder
-5. Addition of sunburst plot, containing species not present in the ClassiCOL database
-6. Addition of easy to navigate csv output file, including rescored values
-7. Addition of summary output file for batch searches
-8. '_Bos javanicus_','_Bubalus kerabau_','_Capricornis sumarensis_', '_Daubentonia madagascariensis_', '_Eulemur rufifrons_', '_Macaca thibetana thibetana_', '_Mustela lutreola_', '_Mustela nigripes_', '_Ovis canadensis_', '_Ovibos moschatus_', '_Petaurus breviceps papuanus_', and '_Tachyglossus aculeatus_' were added to the ClassiCOL collagen database. _Homo sapiens_ COL1A1 and COL1A2 Uniprot reference sequences were exchanged.
-10. Improved speed of alignment and missingness-plot building
-11. 12th of June 2025 the following species were added: _Macrotis lagotis_, _Notamacropus eugenii_, _Sminthopsis crassicaudata_, _Saccopteryx leptura_, _Saccopteryx_bilineata._
+UPDATE 12th of June 2025: added additional species to the original database
     
 ## Code and User's Guide
 Welcome to the user guide to ClassiCOL. Here will be explained how to use the algorithm and how to interprete the results. If you have any additional questions please contact maarten.dhaenens@ugent.be
 
 ### Citation
 When using ClassiCOL please cite:
-Engels, I. et al. ClassiCOL: LC-MS/MS analysis for ancient species Classification via Collagen peptide ambiguation. bioRxiv 2024.10.01.616034 (2024) doi:10.1101/2024.10.01.616034.
+I. Engels, A. Burnett, P. Robert, C. Pironneau, G. Abrams, R. Bouwmeester, P. Van der Plaetsen, K. Di Modica, M. Otte, L. G. Straus, V. Fischer, F. Bray, B. Mesuere, I. De Groote, D. Deforce, S. Daled, M. Dhaenens, Classification of Collagens via Peptide Ambiguation, in a Paleoproteomic LC-MS/MS-Based Taxonomic Pipeline. J. Proteome Res. 24, 1907–1925 (2025).
 
 ### Installation
 
 1. Download the code in this repository. This includes:
-     a) The ClassiCOL python script
+     a) The ClassiCOL python script (for ClassiCOL version 2 use ClassiCOL_version_2_beta)
      b) The Demo folder (if you want to run the demo)
      c) The MISC folder (contains distance csv and the unimod database)
      d) The BoneDB folder, which contains the curated ClassiCOL collagen fasta files
      e) Download the requirements.txt file to install all additional packages
    **Put all these folders in the ClassiCOL_version_x_x_x folder downloaded from GitHub**
+
+2. Download the **UniProt taxonomy database**:
+   a) Go to https://www.uniprot.org
+   b) Navigate to Taxonomy or use this link adress: https://www.uniprot.org/taxonomy?query=*
+   c) Download the taxonomy by clicking the download button and choosing TSV as file format.
+   d) Not recommended but possible: you can restrict the taxonomy download file if you do not want to include all taxa.
+   e) Put the tsv file in the **MISC** fodler
 
 <img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/ClassiCOL-files-layout.PNG"/>
 
@@ -41,7 +41,7 @@ Engels, I. et al. ClassiCOL: LC-MS/MS analysis for ancient species Classificatio
 ### Usage
 Use the following command to start the algorithm with the demo data:
 ```sh
-$ python ClassiCOL.py -d path_to_the_script -l path_to_folder_containing_your_search_results -s MASCOT -t Mammalia -c number_of_CPUs
+$ python ClassiCOL.py -d path_to_the_script -l path_to_folder_containing_your_search_results -s MASCOT -t Mammalia -c number_of_CPUs -b S
 ```
 
 You can use the arguments as follows:
@@ -55,6 +55,8 @@ $ python ClassiCOL.py -d path_to_the_script -l Demo -s MASCOT
   - `-f` (optional) location of the folder containing a custom database in fasta format
   - `-d` the directory to where the ClassiCOL algorithm is located on your computer
   - `-c` The number of CPUs you want to use (default = 3 less than available on your computer)
+  - `-b` Either use S for single bone analysis or M for Mixtures. Default = mixtures
+    
 ### A dummy example
 1. **Input files:**
    - MASCOT.csv:
@@ -115,7 +117,16 @@ ClassiCOL will provide an estimation of taxonomy based on the available sequence
 - **The batch summary csv**:
   This is a minimal information file that gives an overview of the top results alongside some metadata from the batch search.
 
+- **The mixture multiple sequence alignment**:
+  These plots show per 'order' taxa the multiple sequence alignment of the selected proteins within the samples.
 
-**WARNING_1:** Depending on the number of unique peptides in your sample and the number of species you want to consider, the isoBLAST calculations could take a while (about 2min for +/- 1000 unique peptides per species). An overnight search is recommended. Batch searches will go much quicker towards the end.
+- **The before mixture analysis plot**:
+  This plot shows the taxa that have been discarded from the mixture analysis. There needs to be enough 'order' level uniqueness in compare to other candidates
 
-**WARNING_2:** The algorithm can use a substantial amount of the available CPU and memory. When not enough is free, there is a chance the algorithm will go into error.
+- **Tree plot**:
+  A tree plot is constructed based on distances amoung species based on measured data only. Theoretical sequences resemble potential missing taxa from the database reconstructed by the mixture algorithm.
+
+- **Taxonomic slope plots**:
+  This plots show the remaining candidates after mixture deconvolution. Per theoretical species the taxonomic distances are calculated to give a better understanding of the location within the taxonomic tree from a species not present in the database.
+
+**WARNING:** The algorithm can use a substantial amount of the available CPU and memory. When not enough is free, there is a chance the algorithm will go into error.
