@@ -4,6 +4,10 @@
 
 ## ClassiCOL version 2.0.0 (beta)
 
+What is new in ClassiCOL2:
+- Up to 10X faster analysis time
+- Indicative mixture deconvolution for multiple species samples and non-database taxa.
+- New plots: Taxonomic slope plot, multiple alignment plot, order uniqueness overview plot, measured data-based tree plot 
 
 ## Previous updates of ClassiCOL version 1.0.0
 UPDATE version 1_0_2, bugs in output file fixed
@@ -36,7 +40,7 @@ I. Engels, A. Burnett, P. Robert, C. Pironneau, G. Abrams, R. Bouwmeester, P. Va
 
 <img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/ClassiCOL-files-layout.PNG"/>
 
-3. Open Anaconda command Prompt and navigate to the location of the folder to where you downloaded the ClassiCOL folders.
+3. Open Anaconda command Prompt and navigate to the location of the folder to where you downloaded the ClassiCOL folders. This is used as the base directory
 4. Install the required packages using `pip install -r requirements.txt`.
 
 ### Usage
@@ -46,11 +50,11 @@ $ python ClassiCOL.py -d path_to_the_script -l path_to_folder_containing_your_se
 ```
 
 You can use the arguments as follows:
-  - `-l` folder location containing your personal Mascot \*.csv, MaxQuant \*.txt, or Manual \*.csv output files. In case you want to test the algorithm a MASCOT output file is provided in the Demo folder. Accessable by using `-l Demo`
+  - `-l` folder location containing your personal Mascot \*.csv, MaxQuant \*.txt, or Manual \*.csv output files. In case you want to test the algorithm, a MASCOT output file is provided in the Demo folder. Accessible by using `-l Demo`
 ```sh
 $ python ClassiCOL.py -d path_to_the_script -l Demo -s MASCOT
 ```
-  - `-s MASCOT`, `MaxQuant` or `Manual` (specify the search engine used)
+  - `-s` `MASCOT`, `MaxQuant`, `PEAKS` or `Manual` (search engine parameter)
   - `-t` (optional) you can restrict the taxonomy by specifying it, e.g., Pecora or for species: Bos_taurus or both: Homo_sapiens/Canis
   - `-m` specify the fixed modification used during protein extraction, e.g., C,45.987721 or multiple with C,45.98/M,...
   - `-f` (optional) location of the folder containing a custom database in fasta format
@@ -63,7 +67,7 @@ $ python ClassiCOL.py -d path_to_the_script -l Demo -s MASCOT
    - MASCOT.csv:
      Download your results directly from MASCOT in csv format
    - MaxQuant.txt
-     Use the output datafile containing peptides and locational data from MaxQuant in txt format
+     Use the output datafile containing peptides and PTM data from MaxQuant in txt format
    - Manual.csv:
      A manual csv can be made and used as input. This file should include a sequence and (if present) the modification/s with localisation. N-term location =0, first amino acid has location 1, and C-term uses -1 as location number e.g.:
 ```csv
@@ -74,41 +78,42 @@ AGPPGPPGPAGK,3|Oxidation|9|Oxidation
 ```
 
 2. **Batch searches:**
-   - MASCOT: Place all MASCOT csv files in the same folder. The algoithm will automatically analyse all files in this folder
+   - MASCOT: Place all MASCOT csv files in the same folder. The algorithm will automatically analyse all files in this folder
    - MaxQuant: As with MASCOT, you can place all files in the same folder. Additionally if 1 output file contains multiple experiments, the algorithm will automatically recognise this and analyse each experiment individually
    - Manual: Same as MASCOT
 
 3. **The ClassiCOL output:**
 ClassiCOL will put all results in the folder 'ClassiCOL_outputs', here each experiment will get its own folder for easy access. This will contain the heatmap, sunburst plot, sunburst plot with species missingness, rescored_barplot, rescored_lineplot, temporary csv output files and the final csv output file. For batch searches there will be a summary output file in the ClassiCOL_output folder.
+In version 2 there will be an additional folder called 'mixtures' which contains the new plots listed below.
 
-4. **Interpretation of the results:**
-ClassiCOL will provide an estimation of taxonomy based on the available sequences in the ClassiCOL database and peptides from your search engine. It is always up to the user to interpret what these results mean!
+5. **Interpretation of the results:**
+ClassiCOL will provide an estimation of taxonomy based on the available sequences in the ClassiCOL database and peptides from your search engine. It is always up to the user to interpret what these results mean.
 
 - **The Heatmap**:
-  The heatmap shows the path the algorithm will take given the NCBI taxonomy (y axis) and how the proteins relate to each other (x axis). The colours show abundance of peptides assigned to each protein after isoBLAST.
+  The heatmap shows the path the algorithm will take given the NCBI taxonomy (y axis) and how the proteins relate to each other (x axis). The colours show the number of peptides assigned to each protein after isoBLAST.
   
   <img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/heatmap_example_html.png" width="1500" height="1500" />
   
 - **The sunburst**:
-  This figure shows an interactive overview of the output of your ClassiCOL search. A colour scheme is used to highlight the most likely classification/s (the more yellow = the more likely). By hovering over the sunburst plot you can see the number of attributed peptides and the number of isoBLASTed peptides. You can zoom in by clicking on the sunburst plot, and zoom out by clicking on the center node (or by refreshing).
+  This figure shows an interactive overview of the output of your ClassiCOL search. A colour scheme is used to highlight the most likely classification/s (the more yellow = the more likely). By hovering over the sunburst plot you can see the taxonomic score, the number of attributed peptides and the number of isoBLASTed peptides. You can zoom in by clicking on the sunburst plot, and zoom out by clicking on the center node (or by refreshing).
 
 <img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/sunburst_example_html.png"/>
   
 - **The sunburst with missingness**:
-  This plot shows exactly the same results as the sunburst plot, however now it includes all known species in NCBI that were not present during the ClassiCOL analysis. Only branches neighboring the main branch are shown up to the Order level. e.g. attached to the Family node, every missing genus (no represenative in the database used) will be shown.
+  This plot shows exactly the same results as the sunburst plot, however now it includes all known species in NCBI that were not present during the ClassiCOL analysis. Only branches neighboring the main branch are shown up to the Order level. e.g. attached to the Family node, every missing genus (no represenative in the database used) will be shown. All species relevant to the output which are present in NCBI taxonomy but which are not included in the database used are shown in grey. This can be used to guide interpretation in cases of extinct/hybrid/non-database species.
 
   <img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/sunburst_with_missingness_example_html.png" />
   
 - **The temporary output csv**:
-  This csv is generated after the initial classification. The species/taxa are ranked to likelihood and peptides-proteins are shown that were used during the classification.
+  This csv is generated after the initial classification. The species/taxa are ranked to likelihood and peptides-proteins that were used during the classification are shown.
   
 - **Rescored barplot**:
-  For each classification, the top result is rescored. This rescoring is based on uniqueness within the top scoring group of species, meaning that all peptides shared amongst these species will be excluded. The overlap that has uniqueness is shown in this barplot.
+  For each classification, the top results are rescored. This rescoring is based on uniqueness within the top scoring group of species, meaning that all peptides shared amongst these species will be excluded. The overlap that has uniqueness is shown in this barplot.
 
   <img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/barplot_example_html.png"/>
   
 - **Rescored lineplot**:
-  This lineplot shows how the scoring changes amongst top scoring candidates. When a dropoff is noticed after rescoring, lower-scoring candidates can be considered as discardable. When no drop-off is noticable, the sample can be comprised of a physical and/or genetic mixture.
+  This lineplot shows how the scoring changes amongst top-scoring candidates. When a dropoff is noticed after rescoring, lower-scoring candidates can be considered as discardable. When no drop-off is noticable, the sample may be comprised of a physical and/or genetic mixture.
 
   <img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/lineplot_example_html.png" width="400" height="500" />
   
@@ -119,15 +124,15 @@ ClassiCOL will provide an estimation of taxonomy based on the available sequence
   This is a minimal information file that gives an overview of the top results alongside some metadata from the batch search.
 
 - **The mixture multiple sequence alignment**:
-  These plots show per 'order' taxa the multiple sequence alignment of the selected proteins within the samples.
+  These plots show per taxonomic 'order' the multiple sequence alignment of the selected proteins within the samples.
 
 - **The before mixture analysis plot**:
-  This plot shows the taxa that have been discarded from the mixture analysis. There needs to be enough 'order' level uniqueness in compare to other candidates
+  This plot shows the taxa that have been discarded from the mixture analysis. There needs to be enough 'order' level uniqueness in comparison to other candidates
 
 - **Tree plot**:
   A tree plot is constructed based on distances amoung species based on measured data only. Theoretical sequences resemble potential missing taxa from the database reconstructed by the mixture algorithm.
 
 - **Taxonomic slope plots**:
-  This plots show the remaining candidates after mixture deconvolution. Per theoretical species the taxonomic distances are calculated to give a better understanding of the location within the taxonomic tree from a species not present in the database.
+  This plot shows the remaining candidates after mixture deconvolution. Per theoretical species, the taxonomic distances are calculated to give a better understanding of the location within the taxonomic tree for a species not present in the database.
 
-**WARNING:** The algorithm can use a substantial amount of the available CPU and memory. When not enough is free, there is a chance the algorithm will go into error.
+**WARNING:** The algorithm can use a substantial amount of the available CPU and memory. When not enough is free, there is a chance the algorithm will go into error. 
