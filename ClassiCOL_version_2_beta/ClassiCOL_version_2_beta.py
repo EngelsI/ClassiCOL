@@ -6101,7 +6101,7 @@ def ClassiCOL_mixture_analysis(
                     
                 #mixture => mix can be considered 2 time, with different residues to contribute
                 considered_temp = list(set(one_side_keep)) + list(set(mixed_keep))+list(set(keep))
-                if len(set(find_trace(k.split('_VS_')[0],theoretical_trace_back))|set(find_trace(k.split('_VS_')[1],theoretical_trace_back)))>6 or find_LCA(taxonomy,k.split('_VS_'))==groups or any((k.split('_VS_')[0] in element_v or k.split('_VS_')[1] in element_v) and 'theoretical_'+str(element_k) in considered_temp for element_k,element_v in theoretical_trace_back.items()) and int(pm)!=0:
+                if (len(set(find_trace(k.split('_VS_')[0],theoretical_trace_back))|set(find_trace(k.split('_VS_')[1],theoretical_trace_back)))>6 or find_LCA(taxonomy,k.split('_VS_'))==groups or any((k.split('_VS_')[0] in element_v or k.split('_VS_')[1] in element_v) and 'theoretical_'+str(element_k) in considered_temp for element_k,element_v in theoretical_trace_back.items())) and int(pm)!=0:
                     if any((k.split('_VS_')[0] in element_v or k.split('_VS_')[1] in element_v) and 'theoretical_'+str(element_k) in considered_temp for element_k,element_v in theoretical_trace_back.items()):
                         #if species already donated to something else, it is not allowed to be mixed untill that last one is dissolved. otherwise combos within physical mixtures will go too far up the tree
                         print('Any of {} already donated peptides to something that is still within the list of possibilities.\n So it is not mixable anymore.'.format(k.split('_VS_')))
