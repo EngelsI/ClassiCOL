@@ -14,6 +14,7 @@ Welcome to the user guide to ClassiCOL. Here will be explained how to use the al
 
 ### Citation
 When using ClassiCOL please cite:
+
 I. Engels, A. Burnett, P. Robert, C. Pironneau, G. Abrams, R. Bouwmeester, P. Van der Plaetsen, K. Di Modica, M. Otte, L. G. Straus, V. Fischer, F. Bray, B. Mesuere, I. De Groote, D. Deforce, S. Daled, M. Dhaenens, Classification of Collagens via Peptide Ambiguation, in a Paleoproteomic LC-MS/MS-Based Taxonomic Pipeline. J. Proteome Res. 24, 1907–1925 (2025).
 
 ### Installation
@@ -26,7 +27,7 @@ I. Engels, A. Burnett, P. Robert, C. Pironneau, G. Abrams, R. Bouwmeester, P. Va
 - Download the requirements.txt file to install all additional packages.
    **Put all these folders in the ClassiCOL_version_x_x_x folder downloaded from GitHub**
 
-3. Download the **UniProt taxonomy database**:
+2. Download the **UniProt taxonomy database**:
 - Go to https://www.uniprot.org.
 - Navigate to Taxonomy or use this link adress: https://www.uniprot.org/taxonomy?query=*.
 - Download the taxonomy by clicking the download button and choosing TSV as file format.
