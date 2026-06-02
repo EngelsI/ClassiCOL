@@ -1,6 +1,6 @@
 # ClassiCOL version 2 (beta)
 
-<img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/ClassiCOL-logo5_whitebackground.png" width="1000" height="350" />
+<img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/isoBLAST_ClassiCOL_logos.png" width="1000" height="350" />
 
 ## ClassiCOL version 2.0.0 (beta)
 
