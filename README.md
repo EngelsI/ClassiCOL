@@ -6,7 +6,7 @@
 
 What is new in ClassiCOL2:
 - Up to 10X faster analysis time
-- Removal of the Keratin restriction
+- The removal of sequences with isoBLASTs to keratin has been scrapped. (Trypsin isoBLASTs are still excluded.)
 - Indicative mixture deconvolution for multiple species samples and non-database taxa.
 - New plots: Taxonomic slope plot, multiple alignment plot, order uniqueness overview plot, measured data-based tree plot 
 
@@ -15,7 +15,7 @@ UPDATE version 1_0_2, bugs in output file fixed
 UPDATE 12th of June 2025: added additional species to the original database
     
 ## Code and User's Guide
-Welcome to the user guide to ClassiCOL. Here will be explained how to use the algorithm and how to interprete the results. If you have any additional questions please contact maarten.dhaenens@ugent.be
+Welcome to the user guide to ClassiCOL. Here we explain how to use the algorithm and how to interpret the results. If you have any additional questions please contact ian.engels@ugent.be
 
 ### Citation
 When using ClassiCOL please cite:
