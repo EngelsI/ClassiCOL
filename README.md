@@ -1,4 +1,4 @@
-# ClassiCOL version 1.0.2
+# ClassiCOL version 2 (beta)
 
 <img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/ClassiCOL-logo5_whitebackground.png" width="1000" height="350" />
 
@@ -19,19 +19,19 @@ I. Engels, A. Burnett, P. Robert, C. Pironneau, G. Abrams, R. Bouwmeester, P. Va
 ### Installation
 
 1. Download the code in this repository. This includes:
-a) The ClassiCOL python script (for ClassiCOL version 2 use ClassiCOL_version_2_beta).
-b) The Demo folder (if you want to run the demo).
-c) The MISC folder (contains distance csv and the unimod database).
-d) The BoneDB folder, which contains the curated ClassiCOL collagen fasta files.
-e) Download the requirements.txt file to install all additional packages.
+- The ClassiCOL python script (for ClassiCOL version 2 use ClassiCOL_version_2_beta).
+- The Demo folder (if you want to run the demo).
+- The MISC folder (contains distance csv and the unimod database).
+- The BoneDB folder, which contains the curated ClassiCOL collagen fasta files.
+- Download the requirements.txt file to install all additional packages.
    **Put all these folders in the ClassiCOL_version_x_x_x folder downloaded from GitHub**
 
-2. Download the **UniProt taxonomy database**:
-a) Go to https://www.uniprot.org.
-b) Navigate to Taxonomy or use this link adress: https://www.uniprot.org/taxonomy?query=*.
-c) Download the taxonomy by clicking the download button and choosing TSV as file format.
-d) Not recommended but possible: you can restrict the taxonomy download file if you do not want to include all taxa.
-e) Put the tsv file in the **MISC** folder.
+3. Download the **UniProt taxonomy database**:
+- Go to https://www.uniprot.org.
+- Navigate to Taxonomy or use this link adress: https://www.uniprot.org/taxonomy?query=*.
+- Download the taxonomy by clicking the download button and choosing TSV as file format.
+- Not recommended but possible: you can restrict the taxonomy download file if you do not want to include all taxa.
+- Put the tsv file in the **MISC** folder.
 
 <img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/ClassiCOL-files-layout.PNG"/>
 
