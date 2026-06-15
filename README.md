@@ -2,7 +2,7 @@
 
 <img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/isoBLAST_ClassiCOL_logos_.png" width="1000" height="350" />
 
-## ClassiCOL version 2.0.0 (beta)
+## ClassiCOL version 2 (beta)
 
 What is new in ClassiCOL2:
 - Up to 10X faster analysis time
@@ -49,6 +49,7 @@ Use the following command to start the algorithm with the demo data:
 ```sh
 $ python ClassiCOL.py -d path_to_the_script -l path_to_folder_containing_your_search_results -s MASCOT -t Mammalia -c number_of_CPUs -b S
 ```
+**Warning: Windows has an upperlimit for the path/directory name length, keep this in mind when running ClassiCOL!**
 
 You can use the arguments as follows:
   - `-l` folder location containing your personal Mascot \*.csv, MaxQuant \*.txt, or Manual \*.csv output files. In case you want to test the algorithm, a MASCOT output file is provided in the Demo folder. Accessible by using `-l Demo`
