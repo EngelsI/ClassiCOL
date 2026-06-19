@@ -4,7 +4,7 @@
 
 ## ClassiCOL version 2
 
-What is new in ClassiCOL2:
+What is **new in ClassiCOL2**:
 - Up to 10X faster analysis time
 - The removal of sequences with isoBLASTs to keratin has been scrapped. (Trypsin isoBLASTs are still excluded.)
 - Indicative mixture deconvolution for multiple species samples and non-database taxa.
@@ -25,7 +25,7 @@ I. Engels, A. Burnett, P. Robert, C. Pironneau, G. Abrams, R. Bouwmeester, P. Va
 ### Installation
 
 1. Download the code in this repository. This includes:
-- The ClassiCOL python script (for ClassiCOL version 2 use ClassiCOL_version_2_beta).
+- The ClassiCOL python script (ClassiCOL_v2).
 - The Demo folder (if you want to run the demo).
 - The MISC folder (contains distance csv and the unimod database).
 - The BoneDB folder, which contains the curated ClassiCOL collagen fasta files.
