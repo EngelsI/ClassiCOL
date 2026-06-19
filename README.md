@@ -1,8 +1,8 @@
-# ClassiCOL version 2 (beta)
+# ClassiCOL version 2
 
 <img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/isoBLAST_ClassiCOL_logos_.png" width="1000" height="350" />
 
-## ClassiCOL version 2 (beta)
+## ClassiCOL version 2
 
 What is new in ClassiCOL2:
 - Up to 10X faster analysis time
