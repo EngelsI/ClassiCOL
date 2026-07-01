@@ -9,6 +9,7 @@ What is **new in ClassiCOL2**:
 - The removal of sequences with isoBLASTs to keratin has been scrapped. (Trypsin isoBLASTs are still excluded.)
 - Indicative mixture deconvolution for multiple species samples and non-database taxa.
 - New plots: Taxonomic slope plot, multiple alignment plot, order uniqueness overview plot, measured data-based tree plot 
+- Updated **bird collagen database**. This database includes 209 bird species (8399 sequences)
 
 ## Previous updates of ClassiCOL version 1.0.0
 UPDATE version 1_0_2, bugs in output file fixed
