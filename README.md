@@ -10,6 +10,7 @@ What is **new in ClassiCOL2**:
 - Indicative mixture deconvolution for multiple species samples and non-database taxa.
 - New plots: Taxonomic slope plot, multiple alignment plot, order uniqueness overview plot, measured data-based tree plot 
 - Updated **bird collagen database**. This database includes 209 bird species (8399 sequences). Old bird database has been removed.
+- Update: ClassiCOL_2_0_1 can now import **fragpipe** results files. (Only psm.tsv are used)
 
 ## Previous updates of ClassiCOL version 1.0.0
 UPDATE version 1_0_2, bugs in output file fixed
@@ -69,13 +70,15 @@ $ python ClassiCOL.py -d path_to_the_script -l Demo -s MASCOT
     
 ### A dummy example
 1. **Input files:**
-   - MASCOT.csv:
+    - MASCOT.csv:
      Download your results directly from MASCOT in csv format
-   - MaxQuant.txt
+    - MaxQuant.txt
      Use the output datafile containing peptides and PTM data from MaxQuant in txt format (e.g. evidence.txt)
-   - PEAKS.csv:
+    - PEAKS.csv:
      Use the peptide.csv output file
-   - Manual.csv:
+    - Fragpipe.tsv:
+     Use the psm.tsv output file
+    - Manual.csv:
      A manual csv can be made and used as input. This file should include a sequence and (if present) the modification/s with localisation. N-term location =0, first amino acid has location 1, and C-term uses -1 as location number e.g.:
 ```csv
 seq,modifications
