@@ -23,7 +23,7 @@ Welcome to the user guide to ClassiCOL. Here we explain how to use the algorithm
 ### Citation
 When using ClassiCOL please cite:
 
-I. Engels, A. Burnett, P. Robert, C. Pironneau, G. Abrams, R. Bouwmeester, P. Van der Plaetsen, K. Di Modica, M. Otte, L. G. Straus, V. Fischer, F. Bray, B. Mesuere, I. De Groote, D. Deforce, S. Daled, M. Dhaenens, Classification of Collagens via Peptide Ambiguation, in a Paleoproteomic LC-MS/MS-Based Taxonomic Pipeline. J. Proteome Res. 24, 1907–1925 (2025).
+I. Engels, A. Burnett, P. Robert, C. Pironneau, G. Abrams, R. Bouwmeester, P. Van der Plaetsen, K. Di Modica, M. Otte, L. G. Straus, V. Fischer, F. Bray, B. Mesuere, I. De Groote, D. Deforce, S. Daled, M. Dhaenens, Classification of Collagens via Peptide Ambiguation, in a Paleoproteomic LC-MS/MS-Based Taxonomic Pipeline. J. Proteome Res. 24, 1907–1925 (2025). https://doi.org/10.1021/acs.jproteome.4c00962
 
 Ian Engels, Tristan Dedrie, Synnøve M. Saugen, Simon Van de Vyver, Thijs Vandenbroucke, Kévin Di Modíca, Jan Decher, Alice Toso, Dieter Deforce, Simon Daled, Alexandra Burnett, Grégory Abrams, Maarten Dhaenens, Palaeoproteomic deconvolution of physical and genetic collagen mixtures. bioRxiv 2026.06.17.732552; doi: https://doi.org/10.64898/2026.06.17.732552
 
