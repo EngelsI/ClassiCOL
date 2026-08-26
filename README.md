@@ -147,3 +147,23 @@ ClassiCOL will provide an estimation of taxonomy based on the available sequence
   This plot shows the remaining candidates after mixture deconvolution. Per theoretical species, the taxonomic distances are calculated to give a better understanding of the location within the taxonomic tree for a species not present in the database.
 
 **WARNING:** The algorithm can use a substantial amount of the available CPU and memory. When not enough is free, there is a chance the algorithm will go into error. 
+
+### Troubleshooting for Dummies
+
+Errors may occur for a number of simple reasons which are easily fixed. Please try the following solutions, and contact Ian by email or via the Issues tab in the GitHub page if your problem persists.
+
+1. **Outdated packages** 
+To fix this, use the following command to update packages except numpy and pandas (specific versions for these are specified in the requirements.txt file).
+```sh
+$ pip install name_of_package --upgrade
+```
+The package version you are using can be checked by using this command:
+```sh
+$ pip show name_of_package
+```
+2. **Can't find directory**
+- This error may occur when pasting filepaths into Anaconda Prompt from your File Explorer if the system uses a forward slash (/) rather than a backwards slash (\). Please check that your prompt directory and input file paths use the backward slash.
+- This may also occur if you have any spaces and hyphens in your filepaths. Both of these can interrupt the string entered. This can be fixed by either renaming folders and files to use underscores (_) instead of spaces and hyphens or adopting CamelCase (CapitaliseEachNewWord), or in the case of paths which cannot be modified (e.g. the following OneDrive path: C:\Users\aburnett\OneDrive - UGent\ClassiCOL_code), you may need to use a new location directly on one of your PC drives.
+
+3. **File name or path too long**
+ClassiCOL runs into errors when creating files if the overall path is too long. This can happen because of overly long input filenames, or because your directory folder path is under too many other folders. Try to use short paths and filenames where possible. It may be useful to run ClassiCOL from your desktop folder, for example, and transfer your files to a secondary location after analysis.
