@@ -12,6 +12,7 @@ What is **new in ClassiCOL2**:
 - Updated **bird collagen database**. This database includes 209 bird species (8399 sequences). Old bird database has been removed.
 - Update: ClassiCOL_2_0_4 can now import **fragpipe** results files. (Only psm.tsv are used)
 - Update: ClassiCOL_2_0_6 now outputs all species that were considered during the ClassiCOL analysis (in a txt file)
+- Update: ClassiCOL_2_0_7: Bug fixed
 
 ## Previous updates of ClassiCOL version 1.0.0
 UPDATE version 1_0_2, bugs in output file fixed
