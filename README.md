@@ -1,4 +1,4 @@
-# ClassiCOL version 2
+# ClassiCOL version 2 - with Windows App
 
 <img src="https://github.com/EngelsI/ClassiCOL/blob/main/240405_tarandus_1_1_p/isoBLAST_ClassiCOL_logos_.png" width="1000" height="350" />
 
@@ -13,6 +13,22 @@ What is **new in ClassiCOL2**:
 - Update: ClassiCOL_2_0_4 can now import **fragpipe** results files. (Only psm.tsv are used)
 - Update: ClassiCOL_2_0_6 now outputs all species that were considered during the ClassiCOL analysis (in a txt file)
 - Update: ClassiCOL_2_0_7: Bug fixed
+- update: ClassiCOL_version_2_1_0: Compatible with App, including new summary output files
+
+## ClassiCOL version 2 App
+**Download:**
+
+**[⬇ Download ClassiCOL_App.zip (Windows)](https://github.com/EngelsI/ClassiCOL/releases/tag/v2.1.0)**
+
+Older versions and release notes: [all releases](https://github.com/EngelsI/ClassiCOL/releases)
+
+## Start
+1. Unzip the downloaded file.
+2. Double-click `ClassiCOL_App.exe`. Nothing needs to be installed.(All required files mentioned in the README need to be in the folder next to the App folder)
+3. If Windows shows "Windows protected your PC": click **More info** → **Run anyway**.
+
+Keep all files of the unzipped folder together.
+
 
 ## Previous updates of ClassiCOL version 1.0.0
 UPDATE version 1_0_2, bugs in output file fixed
