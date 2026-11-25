@@ -22,7 +22,7 @@ What is **new in ClassiCOL2**:
 
 Older versions and release notes: [all releases](https://github.com/EngelsI/ClassiCOL/releases)
 
-## Start
+**Start:**
 1. Unzip the downloaded file.
 2. Double-click `ClassiCOL_App.exe`. Nothing needs to be installed.(All required files mentioned in the README need to be in the folder next to the App folder)
 3. If Windows shows "Windows protected your PC": click **More info** → **Run anyway**.
