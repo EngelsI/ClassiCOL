@@ -18,7 +18,7 @@ What is **new in ClassiCOL2**:
 ## ClassiCOL version 2 App
 **Download:**
 
-**[⬇ Download ClassiCOL_App.zip (Windows)](https://github.com/EngelsI/ClassiCOL/releases/tag/v2.1.0)**
+**[⬇ Download ClassiCOL_App.zip (Windows)](https://github.com/EngelsI/ClassiCOL/releases/latest/download/ClassiCOL_App.zip)**
 
 Older versions and release notes: [all releases](https://github.com/EngelsI/ClassiCOL/releases)
 
