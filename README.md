@@ -29,6 +29,9 @@ Older versions and release notes: [all releases](https://github.com/EngelsI/Clas
 
 Keep all files of the unzipped folder together.
 
+**Old output files**
+The App is compatible with old output files, however, not all new plot will be generated. Summary files can be regenerated when a new release or a new ClassiCOL.py code is used. 
+
 
 ## Previous updates of ClassiCOL version 1.0.0
 UPDATE version 1_0_2, bugs in output file fixed
