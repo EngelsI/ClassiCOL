@@ -43,9 +43,9 @@ Welcome to the user guide to ClassiCOL. Here we explain how to use the algorithm
 ### Citation
 When using ClassiCOL please cite:
 
-I. Engels, A. Burnett, P. Robert, C. Pironneau, G. Abrams, R. Bouwmeester, P. Van der Plaetsen, K. Di Modica, M. Otte, L. G. Straus, V. Fischer, F. Bray, B. Mesuere, I. De Groote, D. Deforce, S. Daled, M. Dhaenens, Classification of Collagens via Peptide Ambiguation, in a Paleoproteomic LC-MS/MS-Based Taxonomic Pipeline. J. Proteome Res. 24, 1907–1925 (2025). https://doi.org/10.1021/acs.jproteome.4c00962
+I. Engels, A. Burnett, P. Robert, C. Pironneau, G. Abrams, R. Bouwmeester, P. Van der Plaetsen, K. Di Modica, M. Otte, L. G. Straus, V. Fischer, F. Bray, B. Mesuere, I. De Groote, D. Deforce, S. Daled, and M. Dhaenens, Classification of Collagens via Peptide Ambiguation, in a Paleoproteomic LC-MS/MS-Based Taxonomic Pipeline. _J. Proteome Res. 24_, 1907–1925 (2025). https://doi.org/10.1021/acs.jproteome.4c00962
 
-I. Engels, T. Dedrie, S. K. Mo, et al. “ Palaeoproteomic Deconvolution of Physical and Genetic Collagen Mixtures.” Advanced Science (2026): e77807. https://doi.org/10.1002/advs.77807
+I. Engels, T. Dedrie, S. K. Mo, S. Van de Vyver, T. R. A. Vandenbroucke, K. Di Modíca, J. Decher, A. Toso, D. Deforce, S. Daled, A. Burnett, G. Abrams, and M. Dhaenens, Palaeoproteomic Deconvolution of Physical and Genetic Collagen Mixtures. _Advanced Science_ (2026): e77807. https://doi.org/10.1002/advs.77807
 
 ### Installation
 
